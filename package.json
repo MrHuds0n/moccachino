@@ -1,0 +1,23 @@
+{
+  "name": "moccachino",
+  "version": "1.0.0",
+  "main": "index.js",
+  "license": "MIT",
+  "devDependencies": {
+    "babel-core": "^6.26.0",
+    "babel-preset-env": "^1.6.1",
+    "babel-register": "^6.26.0",
+    "nodemon": "^1.12.1"
+  },
+  "scripts": {
+    "start": "node index.js"
+  },
+  "dependencies": {
+    "discord.js": "^11.2.1"
+  },
+  "babel": {
+    "presets": [
+      "env"
+    ]
+  }
+}
