@@ -3,7 +3,5 @@ export class ConfigurationError extends Error {
 		super(message)
 		this.name = "ConfigurationError"
 		this.emoji = "gear"
-
-		Error.captureStackTrace(this, this.constructor)
 	}	
 }

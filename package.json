@@ -5,6 +5,7 @@
   "license": "MIT",
   "devDependencies": {
     "babel-core": "^6.26.0",
+    "babel-polyfill": "^6.26.0",
     "babel-preset-env": "^1.6.1",
     "babel-register": "^6.26.0",
     "nodemon": "^1.12.1"
@@ -13,7 +14,8 @@
     "start": "node index.js"
   },
   "dependencies": {
-    "discord.js": "^11.2.1"
+    "discord.js": "^11.2.1",
+    "thinky": "^2.3.9"
   },
   "babel": {
     "presets": [
