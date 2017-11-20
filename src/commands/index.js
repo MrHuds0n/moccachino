@@ -1,10 +1,11 @@
-import client from '..'
+import { client } from '..'
 import config from '../config'
 
 import ping from './ping'
 
 import init from './init'
 import configure from './configure'
+import permissions from './permissions'
 
 export default function(message) {
 	if(message.content.startsWith(config.prefix)) {
@@ -15,5 +16,6 @@ export default function(message) {
 
 		init(message, ...command)
 		configure(message, ...command)
+		permissions(message, ...command)
 	}
 }

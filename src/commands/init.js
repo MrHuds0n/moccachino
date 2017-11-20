@@ -1,4 +1,6 @@
-import client from '..'
+// This command initialises a guild/user with a config in the database.
+
+import { client } from '..'
 import { Guild } from '../models'
 import { handler, ConfigurationError } from '../errors'
 

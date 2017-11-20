@@ -1,4 +1,6 @@
-import client from '..'
+// This command changes config values in user/guild config entries in the database.
+
+import { client } from '..'
 import { Guild } from '../models'
 import { handler, ConfigurationError } from '../errors'
 
@@ -15,6 +17,10 @@ export default async function(message, command, ...args) {
 				if(!lookup) {
 					throw new ConfigurationError("There is no configuration for this guild! (Have you tried `.init guild`?)")
 				}
+			}
+
+			if(!args[1]) {
+				throw new SyntaxError('Provide a config value to edit.')
 			}
 
 			if(!lookup.config[args[1]]) {

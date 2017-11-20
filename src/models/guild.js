@@ -1,7 +1,7 @@
 import { thinky } from '../utils/thinky'
 const type = thinky.type
 
-const Guild = thinky.createModel("Guild", {
+export const Guild = thinky.createModel("Guild", {
 	id: type.string(),
 	name: type.string(),
 	config: {
@@ -10,5 +10,3 @@ const Guild = thinky.createModel("Guild", {
 		playerlistChannel: type.string()
 	}
 })
-
-export { Guild }

@@ -1,7 +1,7 @@
 import { client } from '..'
 import config from '../config'
 
-export function handler(msg, error) {
+export function logger(error) {
 	if(error.name === "ReferenceError") error.emoji = "question"
 	else if(error.name === "SyntaxError") error.emoji = "books"
 
@@ -9,10 +9,6 @@ export function handler(msg, error) {
 
 	client.channels.get(config.debugChannel).send(
 `:${error.emoji}: **${error.name}**: ${error.message}
-\`\`\`${error.stack}\`\`\`
-\`\`\`${msg.author.username}#${msg.author.discriminator} ${msg.channel.name} @ ${msg.guild.name}
-${msg.content}\`\`\``
+\`\`\`${error.stack}\`\`\``
 	)
-
-	msg.reply(`:${error.emoji}: **${error.name}** : ${error.message}`)
 }

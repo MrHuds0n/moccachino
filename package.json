@@ -15,6 +15,7 @@
   },
   "dependencies": {
     "discord.js": "^11.2.1",
+    "discoverygc": "^1.0.1",
     "thinky": "^2.3.9"
   },
   "babel": {
