@@ -1,4 +1,5 @@
 node_modules
 src/config.js
 *.swp
+rethinkdb_data
 yarn.lock

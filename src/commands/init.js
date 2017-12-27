@@ -1,7 +1,7 @@
 // This command initialises a guild/user with a config in the database.
 
 import { client } from '..'
-import { Guild } from '../models'
+import { Guild, User } from '../models'
 import { handler, ConfigurationError } from '../errors'
 
 export default async function(message, command, ...args) {
@@ -11,7 +11,7 @@ export default async function(message, command, ...args) {
 		try {
 			const lookup = await Guild.filter({id: message.guild.id}).run()
 
-			if(lookup) {
+			if(lookup.length > 0) {
 				throw new ConfigurationError("There already is a config for this guild.")
 			}
 
@@ -41,5 +41,30 @@ export default async function(message, command, ...args) {
 			handler(message, error)
 		}
 	}
-	
+
+	if(args[0] === 'me') {
+		try {
+			const lookup = await User.filter({id: message.author.id}).run()
+
+			if(lookup.length > 0) {
+				throw new ConfigurationError("There already is a config for this user.")
+			}
+
+			const user = new User({
+				id: message.author.id,
+				config: {
+					libreFm: ''
+				}
+			})
+
+			return user.save()
+				.then(() => {
+					message.reply(":sparkles: Created a new user!")
+					message.delete()
+				})
+		}
+		catch(error) {
+			handler(message, error)
+		}
+	}
 }

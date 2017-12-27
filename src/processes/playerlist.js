@@ -9,7 +9,7 @@ export async function playerlist() {
 			data = await disco.players()
 		}
 		catch(error) {
-			throw new ConnectionError("Couldn't fetch player data.")
+			throw new ConnectionError('Couldn\'t fetch player data.')
 		}
 
 		client.guilds.map(async (guild) => {
@@ -35,7 +35,7 @@ export async function playerlist() {
 					}
 					catch(error) {
 						console.log(error)
-						throw new Error("Can't edit the playerlist message.")
+						throw new Error('Can\'t edit the playerlist message.')
 					}
 				}
 				else {
@@ -43,7 +43,7 @@ export async function playerlist() {
 						await playerlistChannel.send({embed: formatPlayerlist(data.players)})
 					}
 					catch(error) {
-						throw new Error("Cannot post the playerlist message.")
+						throw new Error('Cannot post the playerlist message.')
 					}
 				}
 			}
