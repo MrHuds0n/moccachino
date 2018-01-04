@@ -9,9 +9,17 @@ import view from './view'
 import permissions from './permissions'
 
 export default function(message) {
-	if(message.content.startsWith(config.prefix)) {
+	let isCommand = false
+	for(let each of config.prefix) {
+		if(message.content.startsWith(each)) {
+			isCommand = true
+			break
+		}
+	}
+
+	if(isCommand) {
 		let command = message.content.split(/[ \t]+/)
-		command[0] = command[0].slice(1)
+		command.shift()
 
 		ping(message, ...command)
 
